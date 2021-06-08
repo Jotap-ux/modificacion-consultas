@@ -1,0 +1,82 @@
+.formu-consulta{
+    width: 95%;
+    margin: auto;
+    max-width: 550px;
+    padding: 10px;
+    background: rgba(0, 0, 0, 0.308);
+    border-radius: 20px;
+    border-style: groove;
+}
+
+.consulteichon{
+    padding: 40px;
+    background-image: url(../img/auto.png);
+    background-size: cover;
+}
+
+.consulta{
+    text-align: center;
+    color: white;
+}
+
+
+.columnita-70{
+    width: 70%;
+    margin-left: 10%;
+}
+
+.columnita-60{
+    width: 5%;
+}
+
+.columnita-40{
+    width: 40%;
+}
+
+.columnita-40x{
+    width: 86%;
+    height: 60px;
+    text-align: unset;
+}
+
+.comboBox{
+    margin-top: 30px;
+    margin-bottom: 50px;
+    padding: 10px;
+}
+
+.Consultar .comboBox label{
+    margin-right: 50%;
+}
+
+.comboBox #categoria{
+    padding: 10px;
+}
+
+.comboBox label{
+    padding: 10px;
+    margin-bottom: 10px;
+    margin-right: 10%;
+}
+
+.Consultar input{
+    padding: 10px;
+    margin-bottom: 10px;
+    text-align: auto;
+    border: solid black 1px;
+}
+
+.btn-enviar-formu{
+    width: 30%;
+    height: 12%;
+    background: rgba(30, 30, 255, 0.74);
+    color: white;
+    margin: auto;
+    border-radius: 5px;
+    position: unset;
+}
+
+.btn-enviar-formu:hover{
+    background: rgba(0, 17, 173, 0.836);
+    transition: 0.4s;
+}

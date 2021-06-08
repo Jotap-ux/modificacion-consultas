@@ -1,0 +1,20 @@
+.ubikeichon{
+    width: 90%;
+    height: 100%;
+    margin: auto;
+    padding: 10px;
+    background: rgba(0, 0, 0, 0.308);
+    border-radius: 20px;
+    border: #000 solid 1px;
+    border-style: groove;
+    text-align: center;
+    color: #fff;
+
+}
+
+.ubikeichon-background{
+    background-image: url(../img/auto.png);
+    background-size: cover;
+    padding: 50px;
+    
+}

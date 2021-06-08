@@ -1,0 +1,30 @@
+#blog {
+    text-align: center; /*alineamos todo lo que esta dentro del blog al centro*/
+    font-family: 'Patrick Hand', cursive; /*cambiamos tipo de letra*/
+    margin-bottom: 30px; /*margen inferior*/
+    
+}
+
+#blog .contenedorimg article img{
+    width: 250px; /*hancho*/
+    height: 250px; /*alto*/
+    border: solid 1px black; /*borde solido, grosor y color*/
+    border-radius: 5px; /*borde de imagenes redondeado*/
+}
+
+#blog .contenedorimg{
+    display: flex; /*al dejarlos como cajas flexifles se acomadaran una al lado de la otra*/
+    justify-content: center; /*justificamos que las cajas queden al centro*/
+    flex-wrap: wrap; /*esto hara que al disminuir la pantalla se vayan acomodando una abajo de la otra*/
+}
+
+#blog .contenedorimg h4{
+    margin-bottom: 5px;
+    font-family: 'Patrick Hand', cursive;
+    justify-content: center;
+    margin-top: 20px;
+}
+
+#blog article{
+    margin:15px; /*separacion entre si*/
+}

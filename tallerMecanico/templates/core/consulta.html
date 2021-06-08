@@ -1,0 +1,55 @@
+{% extends 'core/plantilla.html' %}
+{% load static %}
+
+{% block css %}
+  <link rel="stylesheet" href= {% static "css/formularioConsulta.css" %}>
+{% endblock css%}
+
+{% block contenido %}
+  <main class="consulteichon">
+       <form class="formu-consulta" action="" method="POST">
+
+        <section class="consulta">
+
+            <h2 class="titulo-consulta">Formulario de consulta</h2>
+
+            <div class="Consultar">
+
+                <div class="comboBox">
+                    <label for="categoria">Categoría :</label>
+                    <select name="categoria" id="categoria">
+                        <option value="Consulta">Consulta</option>
+                        <option value="Diagnostico">Diagnóstico</option>
+                        <option value="Atenciones">Atenciones</option>
+                    </select>
+                </div>
+
+                <div class="div-nombre"> 
+                    <label class="columnita-60">Nombre:</label>
+                    <input class="columnita-70" type="text" name="txtNombre" id="txtNombre" required minlength="3" maxlength="20">
+                </div>
+
+                <div class="div-correo">
+                    <label class="columnita-60">Email:</label>
+                    <input class="columnita-70" type="email" name="txtCorreo" id="txtCorreoConsulta" placeholder="consulta@ejemplo.cl" required minlength="10" maxlength="25">
+                </div>
+
+                <div>
+                    <input class="columnita-40x" type="text" name="txtComentario" id="txtComentario" placeholder="Comentario" required minlength="10" maxlength="50">
+                </div>
+
+                
+                <input id="btnEnviarConsulta" class="btn-enviar-formu" type="submit" value="Enviar">
+
+
+        </section>
+
+    </form>
+
+  </main>
+{% endblock %}
+
+{% block js %}
+  <script src= {% static "js/consulta-formulario.js" %}></script>
+  <script src= {% static "js/sweetalert2.all.min.js" %}></script>
+{% endblock %}

@@ -1,0 +1,11 @@
+@import url(formulario.css);
+@import url(detalletrabajo.css);
+@import url(blog.css);
+@import url(detalletrabajo-ingre.css);
+
+*{
+    margin: 0;
+    padding: 0;
+}
+
+

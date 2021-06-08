@@ -1,0 +1,76 @@
+
+.formu-iniciar{
+    display: flex;
+    align-items: center;
+    height: 100%;
+}
+
+.sec-login {
+
+    width: 90%;
+    margin: auto;
+}
+
+.sec-login input{
+    display: block;
+    width: 60%;
+    height: 40px;
+    border-radius: 20px;
+    border: 1px solid #fff;
+    background: transparent;
+    margin: auto;
+    margin-bottom: 20px;
+    text-align: center;
+    color: #fff;
+}
+
+.sec-login input:focus{
+    outline: none;
+}
+
+.sec-login input::placeholder{
+    text-align: center;
+    color: #fff;
+}
+
+.sec-login .btn-iniciar{
+    width: 40%;
+    border-radius: 20px;
+    color: #fff;
+    margin: auto;
+    margin-top: 40px;
+}
+
+
+.btn-iniciar:hover{
+    background: #ffffffCC;
+    color: #000;
+    transition: 1s;
+}
+
+
+.sec-login a:hover{
+    color: purple;
+    background: none;
+}
+
+.crear-cuenta{
+    color: #fff;
+    background: #000000CC;
+    padding: 15px;
+}
+
+.crear-cuenta p{
+    font-size: 20px;
+}
+
+.crear-cuenta a{
+    text-decoration: none;
+    color: #fff;
+    font-size: 18px;
+}
+
+.crear-cuenta a:hover{
+    color: red;
+    transition: 1s;
+}

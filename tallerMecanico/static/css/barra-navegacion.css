@@ -1,0 +1,463 @@
+
+header{
+    background: #000;
+    font-family: 'Racing Sans One', cursive;
+}
+
+
+/*Sobreescribimos la clase de bootstrap*/
+header .banner-menu .form-control:focus{
+    outline: none;
+    box-shadow: none;
+}
+
+/*Contenedor menu que contiene cajas flexibles*/
+header .contenedor-menu{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    height: 70px;
+    border-bottom: #fff 1px solid;
+}
+
+header .contenedor-menu{
+    position: fixed;
+    width: 100%;
+    z-index: 300;
+    background: #000;
+}
+
+/*Menu de navegación con cajas flex*/
+header .menu-nav{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0px 20px;
+}
+
+/*Tamaño del contenedor y del logo en la nav*/
+header .logo-nav{
+    height: 70px;
+    width: 70px;
+}
+
+header .logo-nav img{
+    width: 100%;
+    height: 100%;
+}
+
+/*Lista de nav con cajas flex*/
+header .links-nav{
+    display: flex;
+}
+
+/*Items de la lista*/
+header .links-nav a{
+    text-decoration: none;
+    padding: 16px 12px;
+    color: #fff;
+}
+
+/*Contenedor del btn login*/
+header .login-nav{
+    width: 100%; 
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;  
+}
+
+/*Decoración del btn login*/
+header .login-nav a{
+    background: transparent;
+    color: #fff;
+    border: #fff 1px solid;
+    padding: 5px 20px;
+    text-decoration: none;
+    margin-right: 20px;
+    opacity: 0.6;
+    border-radius: 2px;
+    font-family: 'Patrick Hand', cursive;
+}
+
+/*Contenedor de la redes sociales*/
+header .redes-sociales{
+    font-size: 25px;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+}
+
+/*Decoración de los iconos de las redes sociales*/
+header .redes-sociales a{
+    text-decoration: none;
+    color: #fff;
+    margin: 0px 20px;
+}
+
+/*Desactivar el icono de menú mobile*/
+header label{
+    margin: 0 20px 0 0;
+    font-size: 25px;
+    line-height: 70px;
+    display: none;
+    width: 25px;
+    float: right;
+}
+
+/*Desactivar el checkbox*/
+#mobile-toggle {
+    display: none;
+}
+
+.login-nav {
+    background: rgb(0,0,0);
+    background: linear-gradient(90deg, rgba(0,0,0,1) 0%, rgba(32,3,26,1) 35%, rgba(41,0,30,1) 37%, rgba(130,5,41,1) 50%, rgba(135,5,42,1) 55%, rgba(115,4,36,1) 60%, rgba(0,0,0,1) 89%, rgba(0,0,0,1) 100%);
+}
+/*Acciones HOVER*/
+
+
+/*Sólo para PC*/
+@media (min-width:1024px){
+/*Animación Subrayado de Menú*/
+header .links-nav a{
+    color: #fff;
+    display: inline-block;
+    position: relative;
+  }
+
+header .links-nav a:after {    
+    background: none repeat scroll 0 0 transparent;
+    bottom: 0;
+    content: "";
+    display: block;
+    height: 2px;
+    left: 50%;
+    position: absolute;
+    background: #A905BF;
+    transition: width 0.3s ease 0s, left 0.3s ease 0s;
+    width: 0;
+  }
+  
+header .links-nav a:hover:after { 
+    width: 100%; 
+    left: 0; 
+}
+
+header .login-nav a:hover{
+    color: #fff;
+    opacity: 1;
+    transition: 0.5s;
+}
+
+/*Iconos de redes sociales*/
+.icon-instagram{
+    border-radius: 22px;
+}
+
+.icon-youtube:hover{
+    color: #FF0000;
+    font-size: 30px;
+    transition: 0.5s;
+}
+
+.icon-twitter:hover{
+    color: #00acee;
+    font-size: 30px;
+    margin:0;
+    transition: 0.5s;
+}
+
+.icon-instagram:hover{
+    color: #fff;
+    background: linear-gradient(45deg, #405de6, #5851db, #833ab4, #c13584, #e1306c, #fd1d1d);
+    font-size: 30px;
+    transition: 0.5s;
+}
+
+header .login-nav .icon-user{
+    font-size: 12px;
+    margin-right: 5px;
+}
+
+header .links-nav span{
+    font-size: 15px;
+    margin-right: 5px;
+}
+
+header .links-nav a:hover{
+    color: #A905BF;
+    transition: 0.5s;
+}
+
+header .links-nav span{
+    font-size: 12px;
+}
+
+   
+}
+
+/*Banner NAV*/
+
+/*Imagen BANNER*/
+
+header .banner-menu {
+    width: 100%;
+    height: 450px;
+}
+
+header .banner-menu .sec-banner-img{
+    position: absolute;
+    width: 100%;
+}
+
+header .banner-menu .sec-banner-img img{
+    height: 450px;
+    width: 100%;
+    opacity: 0.8;
+}
+
+header .banner-menu input{
+    width: 50%;
+    border-top-right-radius: 0;
+    border-bottom-right-radius: 0;
+    border-top-left-radius: 20px;
+    border-bottom-left-radius: 20px;
+    border: 1px #000 solid;
+}
+
+header .banner-menu nav{
+    height: 250px;
+}
+
+header .banner-menu form{
+    position: absolute;
+    top: 85px
+}
+
+header .banner-menu form button{
+    border: none;
+    background-color: #E1002C;
+    color: #fff;
+    border-top-right-radius: 20px;
+    border-bottom-right-radius: 20px;
+    border-top-left-radius: 0;
+    border-bottom-left-radius: 0;
+}
+
+header .banner-menu form button:focus{
+    background: #E1002C !important;
+}
+
+
+header .banner-menu form button .icon-search{
+    font-size: 12px;
+}
+
+header .banner-menu form button:hover{
+    background: #E1002C;
+    border: none;
+}
+
+header .banner-menu form button:focus{
+    outline: none;
+    background: #000;
+    border: none;
+    box-shadow: none !important ;
+}
+
+/*Titulo Taller Rayo Makween*/
+
+header .banner-menu h1{
+    position: absolute;
+    top: 350px;
+    left: 60px;
+    color: #FF001B;
+    text-shadow: 3px 3px 2px  #000;
+    font-family: 'Lobster Two', cursive;
+}
+
+/*API del Dólar*/
+
+header .banner-menu h2{
+    position: absolute;
+    top: 460px;
+    right: 20px;
+    color: #FF001B;
+    font-size: 15px;
+    font-family: cursive;
+}
+
+/*Menu responsive*/
+
+/*Tablets*/
+@media only screen and (max-width: 800px) {
+
+    /*Activamos el icono del menú mobile*/
+    header label {
+        display: block;
+        cursor: pointer;
+        color: #fff;
+    }
+    
+    /*Modificamos la barra de nav*/
+    .links-nav{
+        position: absolute;
+        top: 70px; /**/
+        left: 0; /**/
+        width: 100%;  /*el 100% del ancho disponible*/
+        height: 100vh;  /*que ocupe el 100% de la altura del dispositivo*/
+        background-color: rgb(51,51,51,0.7); /*Menu semi transparente*/
+        transform: translateX(-100%); /*esto hace que el menu se oculte al lado*/
+        transition: all 0.8s; /*para que se muestre la transicion del menu ocultandose*/
+        
+    }
+
+    /*Items de la lista desplegados como bloques*/
+    header .links-nav{
+        display: block;
+        background: #000;
+        z-index: 200;
+    }
+
+    /*Links de la lista desplegados como bloques*/
+    header .links-nav a{
+        display: block;
+        margin-left: 40%;
+        border-bottom: 1px solid #fff;
+    }
+
+    header .links-nav a:focus{
+        background: #E1002C;
+    }
+
+    /*Ajustar Redes sociales*/
+    header .redes-sociales{
+        justify-content: center;
+        width: 50%;
+    }
+    
+    header .redes-sociales a{
+        margin: 0 10px;
+    }
+
+    /*Ajustar btn login*/
+    header .login-nav a{
+        width: 120px;
+    }
+
+    /*Acción de menú para mostrarlo*/
+    #mobile-toggle:checked~.links-nav{
+        transform: translateX(-40%);
+        z-index: 200;
+    }
+
+    header .login-nav .icon-user{
+        display: none;
+    }
+
+    header .links-nav span{
+        font-size: 15px;
+        margin-right: 5px;
+    }
+
+    header .login-nav a{
+        opacity: 1;
+    }
+
+    header .banner-menu h2{
+        font-size: 10px;
+    }
+
+
+}
+
+/*Celulares*/
+@media only screen and (max-width: 500px) {
+
+    header .menu-nav{
+        width: 110px;
+        padding: 0 10px;
+    }
+    header label{
+        width: 20px;
+    }
+    header .redes-sociales{
+        width: 100%;
+    }
+    header .redes-sociales a{
+        margin:  0 10px;
+        font-size: 25px;
+    }
+   
+    header .login-nav{
+        text-align: right;
+        width: 50%;
+    }
+    header .login-nav a{
+        padding: 4px 0px;
+        margin-right: 10px;
+        width: 100px;
+        border: none;
+        font-size: 15px;
+    }
+
+    header .login-nav .icon-user{
+        display: none;
+    }
+
+    header .links-nav span{
+        font-size: 15px;
+        margin-right: 5px;
+    }
+
+    header .banner-menu h1{
+        top: 390px;
+        left: 10px;
+    }
+
+    header .banner-menu {
+        width: 100%;
+        height: 350px;
+        border: #000 1px solid;
+    }
+
+    header .banner-menu .sec-banner-img img{
+        height: 300px;
+    }
+    
+    /*Barra de busqueda en celular*/
+    header .banner-menu form{
+        top: 305px
+    }
+
+    header .banner-menu input{
+        width: 100%;
+    }
+    
+    header .banner-menu nav{
+        height: 250px;
+    }
+
+    header .banner-menu form button{
+        background: #E1002C;
+    }
+
+    /*Titulo taller*/
+
+    header .banner-menu h1{
+        position: absolute;
+        top: 265px;
+        margin: auto;
+        font-size: 23px;
+    }
+
+    /*API DOLAR*/
+    header .banner-menu h2{
+        top: 360px;
+    }
+    
+}

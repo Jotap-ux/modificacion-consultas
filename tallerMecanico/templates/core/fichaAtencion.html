@@ -1,0 +1,43 @@
+{% extends 'core/plantilla.html'%}
+{% load static %}
+{% block css %}
+    <link rel="stylesheet" href={% static "css/ficha.css" %}>
+{% endblock %}
+
+{% block contenido %}
+
+    <main>
+        <section  class =  "fichaAtencion">
+            <h2>Ficha de Atención</h2>
+            <div class="ficha-imagen">
+                <img src = {{ atencion.imagen.url }} alt="">
+            </div>
+            <div class="ficha-contenido">
+                <div>
+                    <h4>Categoria :</h4>
+                    <h6>{{ atencion.id_atencion.categoria }}</h6>
+                </div>
+                <div>
+                    <h4>Fecha :</h4>
+                    <h6>{{ atencion.fecha }}</h6>
+                </div>
+                <div>
+                    <h4>Diagnostico :</h4>
+                    <h6>{{ atencion.diagnostico }}</h6>
+                </div>
+                <div>
+                    <h4>Materiales :</h4>
+                    <h6>{{ atencion.materiales }}</h6>
+                </div>
+                <div>
+                    <h4>Mecánico :</h4>
+                    <h6>{{ atencion.trabajador }}</h6>
+                </div>
+                
+            </div>
+        </section>
+    </main>
+
+{% endblock %}
+
+

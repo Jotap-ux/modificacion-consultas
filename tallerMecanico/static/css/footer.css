@@ -1,0 +1,65 @@
+.contacto{
+    display: flex;
+    flex-wrap: wrap;
+    background: #000;
+}
+
+.contacto div{
+    height: 250px;
+    margin-top: 30px;
+    min-width: 250px;
+    padding:20px;
+    color: #fff;
+    border-top: #fff solid 3px;
+    border-bottom: #292525 solid 2px;
+    background:#000;
+}
+
+.contacto div h3{
+    text-align: center;
+}
+
+.contacto div p{
+    text-align: justify;
+}
+
+#horario-atencion p{
+    margin: 0;
+    display: block;
+    text-align: center;
+    font-size: 25px;
+}
+
+.creado{
+    background: #000;
+    color: #fff;
+    font-family: 'Lobster', cursive;
+    height: 70px;
+    display: flex;
+}
+
+.creado h3{
+    margin: auto;
+}
+
+.icon-footer{
+    font-size: 25px;
+    margin-right: 10px;
+}
+
+#pie-pag p span{
+    margin-right: 5px;
+}
+
+@media only screen and (max-width: 500px) {
+    .contacto div{
+        height: 150px;
+        padding: 5px;
+        color: #fff;
+    }
+
+    .creado h3{
+        font-size: 10px;           
+    }
+    
+}

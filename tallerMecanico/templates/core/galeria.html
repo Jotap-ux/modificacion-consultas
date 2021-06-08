@@ -1,0 +1,36 @@
+{% extends 'core/plantilla.html' %}
+{% load static %}
+
+{% block css %}
+  <link rel="stylesheet" href= {% static "css/servicios.css" %}>
+  <link rel="stylesheet" href= {% static "dist/css/lightbox.min.css" %}>
+{% endblock %}
+
+{% block contenido %}
+<section class="servicios">
+    <div class="contenedor-serv">
+      <h1>Galeria</h1>
+      <h2 style="color: red; text-align: center; font-size: 25px;">{{mensaje}}</h2>
+      <h2 style="color: red; text-align: center; font-size: 30px;">{{cantidad}}</h2>
+      <section id="img-servicios">
+          <div class="fotosxd">
+          {% for x in listaAtenciones %}
+              <article> <!--Creamos diferentes articulos-->
+                <a href = {% url 'FICHA' x.id %}>  <!--Le entregamos un id-->
+                  <img src= {{x.imagen.url}} title= {{x.id_atencion.categoria}} alt="">
+                </a>
+                <h4 style="font-size: 25px;">{{x.id_atencion.categoria}}</h4>
+                <h style="font-size: 20px;">Mecánico : {{x.trabajador}}</h4>
+              </article>
+          {% endfor %}
+          </div>
+      </section>
+    </div>
+  </section>
+{% endblock %}
+
+{% block js %}
+  <script src= {% static "https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.1/dist/umd/popper.min.js" %} integrity="sha384-SR1sx49pcuLnqZUnnPwx6FCym0wLsk5JZuNx2bPPENzswTNFaQU1RDvt3wT4gWFG" crossorigin="anonymous"></script>
+  <script src= {% static "https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/js/bootstrap.min.js" %} integrity="sha384-j0CNLUeiqtyaRmlzUHCPZ+Gy5fQu0dQ6eZ/xAww941Ai1SxSY+0EQqNXNE6DZiVc" crossorigin="anonymous"></script>
+  <script src= {% static "dist/js/lightbox-plus-jquery.min.js" %} ></script> 
+{% endblock %}

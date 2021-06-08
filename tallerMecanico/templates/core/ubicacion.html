@@ -1,0 +1,21 @@
+{% extends 'core/plantilla.html' %}
+{% load static %}
+{% block css %}
+  <link rel="stylesheet" href={% static "css/ubikeichon.css" %}>
+{% endblock %}
+  
+{% block contenido %}
+    <main class="ubikeichon-background">
+      <section class="ubikeichon">
+        <div class="ubikeichon-text">
+            <h2> Estamos ubicados en:</h2>
+            <h4> Avenida Concha Y Toro, Av. San Carlos 1340, Puente Alto, Región Metropolitana</h4>
+        </div>
+            <iframe
+                src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d13293.067069136423!2d-70.5785959!3d-33.5983822!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x893f58a1479b8f82!2sDuoc%20UC%3A%20Sede%20Puente%20Alto!5e0!3m2!1ses-419!2scl!4v1619403496715!5m2!1ses-419!2scl"
+                width="100%" height="550vh" style="border:0;" allowfullscreen="" loading="lazy">
+            </iframe>
+      </section>
+  </main>
+
+{% endblock %}

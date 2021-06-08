@@ -1,0 +1,214 @@
+#formu-001{
+    background-color:rgba(0, 0, 0, 0.3); /*color de fondo*/
+    font-family: cursive 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif; /*tipo letra*/
+    padding: 5px;
+    position: relative;
+    border-radius: 5px;
+    width: 60%;
+    font-size: medium;
+    margin: auto; 
+}
+
+.bienvenida .contenedor .form-registro .form-titulo{
+    text-align: center; /*texto al centro*/
+    color: white; /*color blanco*/
+    padding: 15px; /*separacion interna*/
+    border-radius: 15px; /*borde redondeado*/
+    width: 70%;
+    margin: auto;
+}
+
+
+.bienvenida .contenedor .form-registro{
+    width: 95%; /*hancho*/
+    margin: auto; /*con el margen automatico no quedara pegado hacia algun lado se pondra al medio*/
+    max-width: 450px; /*el maximo hancho posible*/
+    margin-top: 10px; /*margen superior*/
+    border-radius: 15px; /*borde redondeado*/
+}
+
+.bienvenida .contenedor .form-registro .contenedor-imput{ 
+    display: block; 
+    padding: 30px 30px; /*que se separen internamente*/
+    flex-wrap: wrap; /*para que se alinien hacia abajo*/
+    justify-content: space-between; /*que aprovechen todo el espacio entremedio*/
+    border-bottom: 40px;
+    background-position: center;
+    margin: auto;
+    width: 90%; /*ESTO FUE LO QUE CAMBIEEEEEEE*/
+
+}
+
+.bienvenida .contenedor .form-registro .contenedor-imput label{
+    color: white;
+    flex-wrap: wrap;
+}
+
+
+
+.bienvenida .contenedor .form-registro .contenedor-imput input{
+    padding: 10px; /*con esto las cajas para ingresar datos van a crecer*/
+    margin-bottom: 10px; /*margen inferior*/  
+    border-radius: 5px;
+    border: solid black 1px;
+    height: 40px;
+    background-color: rgba(0, 0, 0, 0.3) ;
+    color: white;
+       
+}
+
+.bienvenida .contenedor .form-registro .contenedor-imput .btn-enviar{
+    color: white;
+    background-color: teal;
+    width: 200px;
+    margin-left: 80px;
+}
+
+.bienvenida .contenedor .form-registro .contenedor-imput .btn-enviar:hover{
+    color: black;
+    background-color: greenyellow;
+    
+}
+
+
+
+.bienvenida{
+    position: relative;
+    background-image: url(../img/auto.png);
+    background-size: cover;
+    width: 100%;
+    height: 700px;
+    /*border: orange solid 5px;*/
+}
+
+
+
+.bienvenida .contenedor{
+    position: absolute;
+    top: 10%;
+    width: 100%;
+    
+    /*border: red solid 5px;*/
+}
+
+
+
+.col-40{
+    width: 25%; 
+    height: 40px ;
+}
+
+.col-60{
+    width: 68%; 
+    height: 40px;
+}
+
+.col-50{
+    width: 45%; 
+    height: 40px;
+    
+}
+
+
+
+.dropdown-divider {
+    height: 2px;
+    margin: .5rem 0;
+    overflow: hidden;
+    border-top: 1px solid rgb(32, 19, 226);
+    color: #000 ;
+
+}
+
+@media screen and (max-width: 750px ) {
+    #formu-001{
+        width: 90%;
+        height: 90%;
+        
+    }
+
+    .bienvenida .contenedor{
+        width: 100%;
+        height: 90%;
+        margin-left: 0%;
+
+
+    }
+
+    .bienvenida .contenedor .form-registro .contenedor-imput{
+        margin-left: 0%;
+        margin: auto;
+    }
+
+    .bienvenida .contenedor .form-registro .contenedor-imput .btn-enviar{
+        margin-left: 75px;
+        width: 180px;
+    }
+
+    
+}
+
+
+@media screen and (max-width: 450px ){
+    #formu-001{
+        width: 100%;
+        height: 100%;
+       
+    }
+
+    .bienvenida .contenedor{
+        width: 80%;
+        height: 500px;      
+        margin-left: 10%;
+
+    }
+
+    .bienvenida .contenedor .form-registro .contenedor-imput label{
+        display: none;
+    }
+
+    .bienvenida .contenedor .form-registro .contenedor-imput .btn-enviar{
+        margin-left: -5%;
+    }
+
+    .bienvenida .contenedor .form-registro .contenedor-imput{
+        margin: auto;
+        width: 80%;
+        height: 80%;
+    }
+   
+}
+
+
+
+/*
+@media screen and (min-width: 985px ){
+    #formu-001{
+        width: 40%;
+        height: 600px;
+
+    }
+
+    .bienvenida .contenedor{
+        width: 100%;
+        height: 620px;      
+        margin-left: 0%;
+
+    }
+   
+}
+*/
+
+
+
+
+
+
+
+
+
+
+
+
+
+

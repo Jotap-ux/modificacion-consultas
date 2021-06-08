@@ -1,0 +1,16 @@
+@import url(footer.css);
+@import url(barra-navegacion.css);
+@import url(index-body.css);
+@import url(../fonts/style.css);
+@import url('https://fonts.googleapis.com/css2?family=Patrick+Hand&display=swap');
+@import url(modal.css);
+@import url(iniciarSesion.css);
+@import url('https://fonts.googleapis.com/css2?family=Handlee&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Lobster+Two:ital@1&display=swap');
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Patrick Hand', cursive;
+}

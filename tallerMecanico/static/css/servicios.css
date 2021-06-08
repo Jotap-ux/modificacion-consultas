@@ -1,0 +1,115 @@
+
+.servicios .contenedor-serv p{
+    color: white;
+    font-size: 20px;
+    margin-top: 20px;
+    text-align: center;
+}
+
+.servicios{
+    background-image:url(../img/auto.png);
+    background-size: cover;
+    width: 100%;
+    color: white;
+    height: 100%;
+    margin-top: 0%;
+    border: black solid 1px;
+}
+
+.servicios .contenedor-serv h1 {
+   color: white;
+   text-align: center;
+   font-family: 'Handlee', cursive;
+   font-size: 50px;
+}
+
+
+.servicios .contenedor-serv{
+    background-color: rgba(0, 0, 0, 0.7);
+    width: 100%;
+    max-width: 1000px;
+    margin: auto;
+    padding: 30px 50px;
+    border-radius: 5px;
+    margin-top: 50px;
+    margin-bottom: 50px;
+    border: black solid 1px;
+    height: 90%;
+}
+
+
+.separacion{
+    margin-bottom: 30px; /*margen inferior*/ 
+}
+
+
+.hancho-1{
+    width: 80%;
+}
+
+
+
+@media screen and (max-width: 720px ){
+    .detalle{
+        height: 100%;
+    }
+   
+} 
+
+
+
+/*--------------------------------------------------------------------------------------------------------*/
+ 
+#img-servicios {
+
+    text-align: center; /*alineamos todo lo que esta dentro del blog al centro*/
+    font-family: 'Patrick Hand', cursive;/*cambiamos tipo de letra*/
+    margin-bottom: 30px; /*margen inferior*/
+    width: 100%;
+    height: 50%;
+    margin: auto;
+    
+}
+
+#img-servicios .fotosxd article img{
+    width: 250px; /*hancho*/
+    height: 250px; /*alto*/
+    border: solid 1px black; /*borde solido, grosor y color*/
+    border-radius: 5px; /*borde de imagenes redondeado*/
+}
+
+#img-servicios .fotosxd{
+    display: flex; /*al dejarlos como cajas flexifles se acomadaran una al lado de la otra*/
+    justify-content: center; /*justificamos que las cajas queden al centro*/
+    flex-wrap: wrap; /*esto hara que al disminuir la pantalla se vayan acomodando una abajo de la otra*/
+    margin-top: 10px;
+}
+
+#img-servicios .fotosxd h4{
+    margin-bottom: 5px;
+    font-family: 'Patrick Hand', cursive;;
+    justify-content: center;
+    margin-top: 20px;
+}
+
+#img-servicios .fotosxd .botoncillos{
+    margin-bottom: 5px;
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    justify-content: center;
+    margin-top: 20px;
+    border-radius: 5px;
+    border: solid black 1px;
+    background-color: rgb(51, 51, 51, 0.5);
+    color: white;
+    width: 70%;
+    height: 30px;
+}
+#img-servicios .fotosxd .botoncillos:hover{
+    filter: brightness(0.5);
+    transition: 0.5s;
+
+}
+#img-servicios article{
+    margin:15px; /*separacion entre si*/
+}
+

@@ -1,0 +1,69 @@
+{% extends "core/plantilla.html" %}
+{% load static %}
+
+{% block css %}
+  <link rel="stylesheet" href= {% static "css/hojaJp.css" %} >
+{% endblock %}
+
+{% block contenido %}
+    <main>
+        <section class="detalle">
+            <h2 style="text-align: center;">Atenciones</h2>
+            <h3 style="text-align: center;">Mecánico : {{ user.first_name}} {{ user.last_name }}</h3>
+            <!--NOTA REPETIR EL DIV PARA LISTAR LAS ATENCIONES -->
+            <h4 style="text-align: center; color: red;">{{cantidad}}</h4>
+            {% for x in atenciones %}
+            <div class="contenedor-1">
+              <p style="color: red;">{{mensajeUpdate}}</p>
+                <table class="container-fluid table table-dark">
+                  <thead style="text-align: center;">
+                    <tr>
+                      <th>ID</th>
+                      <th>Categoria</th>
+                      <th>Diagnostico</th>
+                      <th>Fecha</th>
+                      <th>Materiales</th>
+                      <th>Foto</th>
+                      <th>Comentario</th>
+                      <th>Publicado</th>
+                      <th>Mecánico</th>
+                      <th>Opciones</th>
+                    </tr>
+                  </thead>
+                  
+                    <tbody style="text-align: center;">
+                    <tr>
+                      <td>{{ x.id }}</td>
+                      <td>{{ x.id_atencion.categoria }}</td>
+                      <td>{{ x.diagnostico }}</td>
+                      <td>{{ x.fecha }}</td>
+                      <td>{{ x.materiales }}</td>
+                      <td><img width="80px" height="80px" src="{{ x.imagen.url }}" alt=""></td>
+                      <td>{{  x.comentario }}</td>
+                      {% if x.publicado %}
+                        <td>Si</td>
+                      {% else %}
+                        <td>No</td>
+                      {% endif %}
+                      <td>{{ x.trabajador }}</td>
+                      <td>
+                        <a href= {% url 'MODIFICAR_ATENCION' x.id %} class="btn btn-info">Modificar</a>
+                        <a style="margin-top: 10px;" onclick="confirmDelete({{x.id}})" class="btn btn-danger">Eliminar</a>
+                        <!--{% url 'ELIMINAR' x.id %}-->
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>  
+            </div>
+            {% endfor %}
+        </section>
+    </main>
+
+
+{% endblock %}
+
+
+{% block js %}
+  <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+  <script src= {% static "js/administracionAtencion.js" %} ></script>
+{% endblock %}

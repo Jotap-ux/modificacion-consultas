@@ -1,0 +1,47 @@
+{% extends 'core/plantilla.html' %}
+{% load static %}
+
+{% block css%}
+    <link rel="stylesheet" href={% static "css/hojaJp.css" %}>
+    <link rel="stylesheet" href={% static "dist/css/lightbox.min.css" %}>
+{% endblock %}
+
+{% block contenido %}
+  <section class="detalle">
+    <div class="contenedor-1">
+        <form action= "{% url 'ACTUALIZAR' %}" enctype="multipart/form-data" method="POST" onsubmit="return valida()"> 
+            <!--{% url 'ACTUALIZAR' %}-->
+        {% csrf_token %}
+          <div class="diagnostico-campo">
+              <h1>Modificar Atención</h1>
+              <input hidden value="{{ atencion.id }}" type="text" name="txtID"  class="diagnos-tico hancho-1">
+          </div>
+          <select class="col-100" style="width: 100%;" name = "cboCategoria" id="cboCategoria">
+            {% for x in categorias %}
+            {% if x.categoria != atencion.id_atencion.categoria %}
+                <option value = "{{ x.categoria }}" >{{ x.categoria }}</option>
+            {% else %}
+                <option value="{{ x.categoria }}" selected>{{ x.categoria }}</option>
+            {% endif %}
+            {% endfor %}     
+          </select>
+
+          <label for="diagnostico "> Diagnóstico :</label>
+          <input value = "{{ atencion.diagnostico }}" id = "txtDiagnostico"  name = "txtDiagnostico" class="diagnos-tico hancho-1" type="text" placeholder="Ingrese el diagnostico de su atencion" required minlength="10" maxlength="100">
+
+          <label for="fecha "> Fecha :</label>
+          <input value = "{{ atencion.fecha }}" id = "txtFecha"  name = "txtFecha" class = "diseno-fecha" type="date" name="fecha-atencion" id="fecha-atencion" required >
+         
+          <label for="materiales "> Materiales Utilizados :</label>
+          <input value = "{{ atencion.materiales }}" id = "txtMateriales"  name = "txtMateriales" class="text-area" type="text" placeholder="ingrese los materiales que utilizo" required minlength="20">
+          <img width="80px" height="80px" src="{{ atencion.imagen.url }}" alt="">
+          <input value = "{{ atencion.imagen.url }}" id="txtImagen" name="txtImagen" class="col-100" type="file">
+
+          <div class="btn-subir">
+            <input class="boton-subir" type="submit" value="Modificar">
+          </div>
+        </form>
+
+      </div>
+  </section>
+{% endblock %}

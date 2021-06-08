@@ -1,0 +1,76 @@
+{% extends 'core/plantilla.html' %}
+{% load static %}
+
+{% block css %}
+  <link rel="stylesheet" href={% static 'css/hojaJp.css' %}>
+  <script src={% static 'js/sweetalert2.all.min.js' %}></script>
+{% endblock %}
+
+
+{% block contenido %}
+  <main>
+
+
+    <!--FORMULARIO-->
+    <section class="bienvenida" > 
+     
+
+      <div class="contenedor">
+        <section id="formu-001">
+          <form class="form-registro" action="{% url 'REGISTRARSE' %}" method="POST" onsubmit="return validacion()"> <!--Indico que todo lo de adentro será un formulario-->
+          {% csrf_token %} <!--Token de Seguridad para el formulario-->
+              
+               <h2 class="form-titulo">Registrarse</h2>
+               <hr class="dropdown-divider"> 
+  
+               <div class="contenedor-imput">
+                   
+                   <label class="col-40" for="">Nombre :</label>
+                   <input   type="text" name="txtNombre" id="txtNombre" placeholder="Ingrese nombre" required minlength="3"> 
+                   <label class="col-40" for="">Apellido :</label>
+                   <input   type="text" name="txtApellido" id="txtApellido" placeholder="Ingrese apellido" required minlength="5" > 
+                   <label class="col-40" for="">Email :</label>
+                   <input   type="email" name="txtEmail" id="txtEmail" placeholder=" Ingrese email" required minlength="10" maxlength="20">
+                   <label class="col-40" for="">Password :</label>
+                   <input   type="password" name="txtContraseña" id="txtContraseña" placeholder="Ingrese contraseña" required minlength="7" maxlength="15">
+                   <label class="col-40" for="">Confirme contraseña:</label>
+                   <input  class="" type="password" name="txtConfirmar" id="txtConfirmar" placeholder="Confirme contraseña" required minlength="7" maxlength="15">
+                   <hr class="dropdown-divider"> 
+
+                   <!--boton de registrar-->
+
+                   <input class="btn-enviar" type="submit" value="Registrar">
+                  <h4 style="color: red;">{{mensaje}}</h4>
+                   
+
+
+                  <!-- <div class="form-row text-center">
+                    <button type="button" class="btn btn-primary w-50" data-bs-toggle="modal" data-bs-target="#exampleModal" >
+                      Registrate
+                    </button>
+                  </div>  -->
+                   
+                   
+                  
+                   
+                   
+                   
+               </div>
+               
+  
+          </form>
+        
+        </section>
+      </div>
+      
+    </section>
+ 
+
+  </main>
+{% endblock %}
+
+{% block js %}
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.1/dist/umd/popper.min.js" integrity="sha384-SR1sx49pcuLnqZUnnPwx6FCym0wLsk5JZuNx2bPPENzswTNFaQU1RDvt3wT4gWFG" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/js/bootstrap.min.js" integrity="sha384-j0CNLUeiqtyaRmlzUHCPZ+Gy5fQu0dQ6eZ/xAww941Ai1SxSY+0EQqNXNE6DZiVc" crossorigin="anonymous"></script>
+  <script src={% static 'js/scripts.js' %}></script>
+{% endblock %}

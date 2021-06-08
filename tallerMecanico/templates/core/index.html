@@ -1,0 +1,69 @@
+
+<!--Heredamos de la platilla el header y el footer -->
+{% extends 'core/plantilla.html' %}
+{% load static %}
+
+{% block css %}
+{% endblock %}
+
+{% block contenido %}
+<!-- Acá ponemos nuestro contenido -->
+ <main>
+      <section class="sec-trabajos">
+          <div class="sec-trabajos-titulo">
+              <div>
+                <h3>Nuestros últimos trabajos</h3>
+              </div>
+          </div>
+          <div class="background-trabajos">
+              <img src= {% static "img/auto.png" %} alt="">
+          </div>
+          <div class="slide-trabajos-carrusel">
+              <div class="slide-trabajos">
+                <div id="carouselExampleCaptions" class="carousel slide" data-bs-ride="carousel">
+                    <div class="carousel-indicators">
+                    <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+                    <!-- Ajusto los botones para que se puedan mover sin bugs los slides -->
+                    {% for x in atenciones %}
+                        <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to={{ x.id }} aria-label="Slide {{ x.id }}"></button>
+                    {% endfor %}
+                    </div>
+                    <div class="carousel-inner">
+
+                    <div class="carousel-item active">
+                        <img src= {% static "img/centro-servicio.png" %} class="d-block w-100" alt="...">
+                        <div class="carousel-caption d-none d-md-block">
+                        <h5>Juan Pablo Arreglando vidas</h5>
+                        <p>Un hermoso ejemplar.</p>
+                        </div>
+                    </div>
+
+                    {% for x in atenciones %}
+                        <div class="carousel-item">
+                            <img src= {{ x.imagen.url }} class="d-block w-100" alt= {{ x.id_atencion.categoria }}>
+                            <div class="carousel-caption d-none d-md-block">
+                            <h5>{{ x.id_atencion.categoria }} realizado por {{ x.trabajador }}</h5>
+                            <p>{{ x.diagnostico }}</p>
+                            </div>
+                        </div>
+                        <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="prev">
+                        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                        <span class="visually-hidden">Previous</span>
+                        </button>
+                        <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="next">
+                        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                        <span class="visually-hidden">Next</span>
+                        </button>
+                    {% endfor %}
+                    </div>
+                    </div>
+                </div>
+              </div>
+          </div>
+      </section>
+  </main>
+{% endblock%}
+
+{% block js %}
+
+{% endblock js%}

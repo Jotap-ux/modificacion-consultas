@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Nuestro trabajo</title>
+  <link rel="icon" href="img/rayomac.ico">
+  <link rel="stylesheet" href="css/hojaJp.css ">
+  <link rel="stylesheet" href="dist/css/lightbox.min.css">
+  <link rel="stylesheet" href="css/hojaJQ.css">
+  <!--Bootstrap-->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-eOJMYsd53ii+scO/bJGFsiCZc+5NDVN2yr8+0RDqr0Ql0h+rP48ckxlpbzKgwra6" crossorigin="anonymous">
+</head>
+<body>
+
+  <header>
+    <nav class="contenedor-menu">
+        <div class="menu-nav">
+            <input type="checkbox" id="mobile-toggle" name="">
+            <label for="mobile-toggle"><span class="icon-menu"></span></label>
+            <div class="logo-nav">
+                <img src="img/logo1.png" alt="logo">
+            </div>
+            <div class="links-nav">
+                <a href="index.html"><span class="icon-home3"></span>Home</a>
+                <a href="servicios.html"><span class="icon-wrench"></span>Servicios</a>
+                <a href="#pie-pag"><span class="icon-phone"></span>Contacto</a>
+                <a href="ubicacion.html"><span class="icon-location"></span>Ubicación</a>
+            </div>
+        </div>
+        <div class="redes-sociales">
+            <a href="https://www.youtube.com/watch?v=RgKAFK5djSk"><span class="icon-twitter"></span></a>
+            <a href="https://www.youtube.com/watch?v=L8TWn4aTpOc"><span class="icon-youtube"></span></a>
+            <a href="https://www.youtube.com/watch?v=GuZzuQvv7uc"><span class="icon-instagram"></span></a>
+        </div>
+        <div class="login-nav">
+            <a href="#openModal" data-bs-target="#openModal" data-bs-toggle="modal"><span class="icon-user"></span>Iniciar sesión</a>
+        </div>
+    </nav>
+    <div class="banner-menu">
+      <div class="sec-banner-img">
+        <div id="carouselExample" class="carousel slide" data-bs-ride="carousel">
+          <div class="carousel-inner">
+          <div class="carousel-item active">
+              <img src="img/banner-nav-auto.png" class="d-block w-100" alt="...">
+          </div>
+          <div class="carousel-item">
+              <img src="img/banner-nav-auto2.png" class="d-block w-100" alt="...">
+          </div>
+          <div class="carousel-item">
+              <img src="img/banner-nav-auto3.png" class="d-block w-100" alt="...">
+          </div>
+          </div>  
+      </div>
+      </div>
+        <nav class="navbar navbar-light nav-buscar">
+            <div>
+              <form class="d-flex container-fluid justify-content-center">
+                <input class="form-control" type="search" placeholder="Mecánico o Categoría" aria-label="Search">
+                <button class="btn btn-outline-success" type="submit"><span class="icon-search"></span></button>
+              </form>
+            </div>
+            <h1>Taller Rayo Makween</h1>
+            <h2 id="txtDolar"></h2>
+        </nav>
+    </div>
+
+       <!-- Modal -->
+       <div id="openModal" class="modal modal-background">
+        <div class="modal-dialog">
+          <div id="modal-login" class="modal-content">
+            <div class="titulo-modal modal-header">
+              <h2>Iniciar sesión</h2>
+            </div>
+
+            <div class="modal-body">
+              <form class="formu-iniciar" action="" method="POST">
+                <section class="sec-login">
+                        <input class="" type="email" name="txtCorreo" id="txtCorreo" placeholder="Correo Electrónico" required minlength="10" maxlength="25">
+                        <input class="" type="password" name="txtPass" id="txtPass" placeholder="Contraseña"  required minlength="7" maxlength="15">
+                        <input id="btnLoginModal" class="btn-iniciar" type="submit" value="Iniciar sesión">
+                        <!--Botón temporal mécanico-->
+                        <!--Sólo es para acceder a las funciones de mécanico de momento-->
+                        <a href="detalletrabajo-ingresar.html" style="text-decoration: none; color: #fff; margin-top: 20px; display: inline-block; border: 1px solid #fff; border-radius: 20px; padding: 8px; padding-left: 10px; padding-right: 10px;">Iniciar como Mécanico</a>
+                </section>
+            </form>
+            </div>
+            <div class="crear-cuenta">
+              <p>¿Aún no tienes cuenta?</p>
+              <a href="registrarse.html">Crear cuenta</a>
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-secondary" data-bs-dismiss="modal"><span class="icon-exit"></span>Volver</button>
+            </div>
+          </div>
+        </div>
+      </div>
+  </header>
+  
+  <section class="detalle">
+    <div class="contenedor-1">
+        <form action="">
+          <div class="diagnostico-campo">
+              <h1>Detalles de los trabajos realizados</h1>
+          </div>
+
+          <label for="diagnostico "> Diagnóstico :</label>
+          <div class="diagnos-tico hancho-1">
+            <p>
+              Lorem ipsum dolor sit amet consectetur adipisicing elit. Laudantium officiis, voluptatum maxime
+            </p>
+          </div>
+
+          <label for="nombre-mecanico "> Nombre del mecánico :</label>
+          <div class="nombre-meca">
+            <p>Jose Luis Walking </p> 
+          </div>
+
+          <label for="fecha "> Fecha :</label>
+          <input  class="separacion" type="date" name="" id="">
+         
+
+
+          <label for="materiales "> Materiales Utilizados :</label>
+          <div class="text-area">
+            <p> Lorem ipsum dolor sit amet consectetur adipisicing elit. Minima necessitatibus voluptates minus suscipit
+            </p>           
+          </div>
+
+          
+          <section id="blog">
+
+            <div class="diagnostico-campo" >
+              Imagenes de los trabajos
+            </div>
+            <div class="contenedorimg">
+
+                <article> <!--Creamos diferentes articulos-->
+                  <a href="img/trabajo1.jpg" data-lightbox="mecanicos" data-title="Este trabajo se realizo en menos de 1 dia"> 
+                    <img src="img/trabajo1.jpg" alt="">
+                  </a>
+                  <h4>Arreglo de frenos</h4>
+                </article>
+
+                <article>                 
+                  <a href="img/trabajo2.jpg" data-lightbox="mecanicos" data-title="Aqui podemos ver a nuestros trabajadores arduamente trabajando con vocacion"> 
+                    <img src="img/trabajo2.jpg" alt="">
+                  </a>        
+                    <h4>Laburando un crack</h4>
+                </article>
+
+                <article>
+                  <a href="img/trabajo3.jpg" data-lightbox="mecanicos" data-title="Realizando regulacion de kilometraje"> 
+                    <img src="img/trabajo3.jpg" alt="">
+                  </a>
+                    <h4>Kilometraje</h4>
+                </article>
+                
+            </div>
+
+        </section>
+          
+        </form>
+
+      </div>
+  </section>
+  <footer>
+      <section id="pie-pag" class="contacto container-fluid">
+        <div id="contacto-footer" class="col"><h3><span class="icon-phone icon-footer"></span>Contacto</h3><p><span class="icon-whatsapp"></span>+56 9 7473 26633 <br> <span class="icon-phone-hang-up"></span> Servicio al Cliente +56 9 4379 3439 <br> <span class="icon-mail4"></span>Tallermakeween@xd.cl</p></div>
+        <div class="col"><h3><a style="text-decoration: none; color: #FF0404;" href="consulta.html">Realizar Consulta</a></h3><p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ullam ducimus officia officiis quia eum odio. Deserunt error quo, voluptatem eum in beatae placeat officiis ad dignissimos voluptatum fugit, alias reiciendis!</p></div>
+        <div id="horario-atencion" class="col"><h3> <span class="icon-clock icon-footer"></span>Horario de Atención</h3><p>Lunes a Jueves - 9:00 a 14:00</p> <p>Viernes - 9:00 a 12:00</p></div>
+      </section>
+      <section class="creado container-fluid">
+        <h3>© 2021 by Cyber-Life Sucursal Taller Mécanico Rayo Makween</h3>
+      </section>
+  </footer>
+  <script src="js/api-dolar.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/js/bootstrap.bundle.min.js" integrity="sha384-JEW9xMcG8R+pH31jmWH6WWP0WintQrMb4s7ZOdauHnUtxwoG2vI5DkLtS3qm9Ekf" crossorigin="anonymous"></script>
+
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.1/dist/umd/popper.min.js" integrity="sha384-SR1sx49pcuLnqZUnnPwx6FCym0wLsk5JZuNx2bPPENzswTNFaQU1RDvt3wT4gWFG" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/js/bootstrap.min.js" integrity="sha384-j0CNLUeiqtyaRmlzUHCPZ+Gy5fQu0dQ6eZ/xAww941Ai1SxSY+0EQqNXNE6DZiVc" crossorigin="anonymous"></script>
+  <script src="dist/js/lightbox-plus-jquery.min.js"></script> 
+
+</body>
+</html>
