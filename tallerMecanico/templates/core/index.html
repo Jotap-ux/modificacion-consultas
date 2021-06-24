@@ -21,30 +21,24 @@
           <div class="slide-trabajos-carrusel">
               <div class="slide-trabajos">
                 <div id="carouselExampleCaptions" class="carousel slide" data-bs-ride="carousel">
-                    <div class="carousel-indicators">
-                    <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
-                    <!-- Ajusto los botones para que se puedan mover sin bugs los slides -->
-                    {% for x in atenciones %}
-                        <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to={{ x.id }} aria-label="Slide {{ x.id }}"></button>
-                    {% endfor %}
-                    </div>
                     <div class="carousel-inner">
-
-                    <div class="carousel-item active">
-                        <img src= {% static "img/centro-servicio.png" %} class="d-block w-100" alt="...">
-                        <div class="carousel-caption d-none d-md-block">
-                        <h5>Juan Pablo Arreglando vidas</h5>
-                        <p>Un hermoso ejemplar.</p>
+                        <div class="carousel-item active">
+                            <img src= {% static "img/banner-carrusel.png" %} class="d-block w-100" alt="...">
+                            <div class="carousel-caption d-none d-md-block">
+                            <h5>Taller Mecánico Rayo Makween</h5>
+                            </div>
                         </div>
-                    </div>
 
                     {% for x in atenciones %}
                         <div class="carousel-item">
-                            <img src= {{ x.imagen.url }} class="d-block w-100" alt= {{ x.id_atencion.categoria }}>
+                            <a href={% url 'FICHA' x.id %}>
+                                <img src= {{ x.imagen.url }} class="d-block w-100" alt= {{ x.id_atencion.categoria }}>
+                            </a>
                             <div class="carousel-caption d-none d-md-block">
                             <h5>{{ x.id_atencion.categoria }} realizado por {{ x.trabajador }}</h5>
-                            <p>{{ x.diagnostico }}</p>
-                            </div>
+                            <p>{{ x.fecha }}</p>
+                        </div>
+                    
                         </div>
                         <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="prev">
                         <span class="carousel-control-prev-icon" aria-hidden="true"></span>

@@ -2,68 +2,105 @@
 {% load static %}
 
 {% block css %}
-  <link rel="stylesheet" href= {% static "css/hojaJp.css" %} >
+<link rel="stylesheet" href={% static "css/hojaJp.css" %}>
 {% endblock %}
 
 {% block contenido %}
-    <main>
-        <section class="detalle">
-            <h2 style="text-align: center;">Atenciones</h2>
-            <h3 style="text-align: center;">Mecánico : {{ user.first_name}} {{ user.last_name }}</h3>
-            <!--NOTA REPETIR EL DIV PARA LISTAR LAS ATENCIONES -->
-            <h4 style="text-align: center; color: red;">{{cantidad}}</h4>
-            {% for x in atenciones %}
-            <div class="contenedor-1">
-              <p style="color: red;">{{mensajeUpdate}}</p>
-                <table class="container-fluid table table-dark">
-                  <thead style="text-align: center;">
-                    <tr>
-                      <th>ID</th>
-                      <th>Categoria</th>
-                      <th>Diagnostico</th>
-                      <th>Fecha</th>
-                      <th>Materiales</th>
-                      <th>Foto</th>
-                      <th>Comentario</th>
-                      <th>Publicado</th>
-                      <th>Mecánico</th>
-                      <th>Opciones</th>
-                    </tr>
-                  </thead>
-                  
-                    <tbody style="text-align: center;">
-                    <tr>
-                      <td>{{ x.id }}</td>
-                      <td>{{ x.id_atencion.categoria }}</td>
-                      <td>{{ x.diagnostico }}</td>
-                      <td>{{ x.fecha }}</td>
-                      <td>{{ x.materiales }}</td>
-                      <td><img width="80px" height="80px" src="{{ x.imagen.url }}" alt=""></td>
-                      <td>{{  x.comentario }}</td>
-                      {% if x.publicado %}
-                        <td>Si</td>
-                      {% else %}
-                        <td>No</td>
-                      {% endif %}
-                      <td>{{ x.trabajador }}</td>
-                      <td>
-                        <a href= {% url 'MODIFICAR_ATENCION' x.id %} class="btn btn-info">Modificar</a>
-                        <a style="margin-top: 10px;" onclick="confirmDelete({{x.id}})" class="btn btn-danger">Eliminar</a>
-                        <!--{% url 'ELIMINAR' x.id %}-->
-                      </td>
-                    </tr>
-                  </tbody>
-                </table>  
-            </div>
-            {% endfor %}
-        </section>
-    </main>
+<main>
+  <section class="detalle">
+    <h2 style="text-align: center;">Atenciones</h2>
+    <h3 style="text-align: center;">Mecánico : {{ user.first_name}} {{ user.last_name }}</h3>
+    <!--NOTA REPETIR EL DIV PARA LISTAR LAS ATENCIONES -->
+    <h4 style="text-align: center; color: red;">{{cantidad}}</h4>
+    {% for x in atenciones %}
+    <div class="contenedor-1">
+      <p style="color: red;">{{mensajeUpdate}}</p>
+      <table class="container-fluid table table-dark">
+        <thead style="text-align: center;">
+          <tr>
+            <th>ID</th>
+            <th>Categoria</th>
+            <th>Diagnostico</th>
+            <th>Fecha</th>
+            <th>Materiales</th>
+            <th>Foto</th>
+            <th>Comentario</th>
+            <th>Publicado</th>
+            <th>Mecánico</th>
+            <th>Opciones</th>
+          </tr>
+        </thead>
+
+        <tbody style="text-align: center;">
+          <tr>
+            <td>{{ x.id }}</td>
+            <td>{{ x.id_atencion.categoria }}</td>
+            <td>{{ x.diagnostico }}</td>
+            <td>{{ x.fecha }}</td>
+            <td>{{ x.materiales }}</td>
+            <td><img width="80px" height="80px" src="{{ x.imagen.url }}" alt=""></td>
+            <td>{{ x.comentario }}</td>
+            {% if x.publicado %}
+            <td>Si</td>
+            {% else %}
+            <td>No</td>
+            {% endif %}
+            <td>{{ x.trabajador }}</td>
+            <td>
+              <a href={% url 'MODIFICAR_ATENCION' x.id %} style="width: 110px;" class="btn btn-info">Modificar</a>
+              <a style="margin-top: 10px; width: 110px;" onclick="confirmDelete('{{x.id}}')"
+                class="btn btn-danger">Eliminar</a>
+              <a href="" onclick="galeria('{{x.id}}')" style="margin-top: 10px; width: 110px;" data-bs-toggle="modal"
+                data-bs-target="#foto-modal" class="btn btn-primary">Agregar Foto</a>
+              <!-- Modal -->
+              <div class="modal fade" id="foto-modal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                <div class="modal-dialog">
+                  <div class="modal-content">
+                    <div class="modal-header">
+                      <h5 class="modal-title" style="color: #000;" id="exampleModalLabel">Agregar Foto</h5>
+                      <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <!--Sección de inserción de imágenes -->
+                    <form action="{% url 'INSERTAR_IMG' %}" method="POST" enctype="multipart/form-data">
+                      {% csrf_token %}
+                      <div class="modal-body">
+                        <div style="display: flex; color: #000;">Agregar foto para la atención Nro: <div
+                            id="nom_atencion" style=margin-left:5px;>{{ x.id }}</div>
+                        </div>
+                        <input type="file" name="txtFoto" id="txtFoto">
+                        <input type="hidden" name="txtIdAtencion" id="txtIdAtencion">
+                      </div>
+                      <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+                        <button type="submit" class="btn btn-primary">Guardar</button>
+                      </div>
+                    </form>
+                  </div>
+                </div>
+              </div>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    {% endfor %}
+  </section>
+</main>
 
 
 {% endblock %}
 
 
 {% block js %}
-  <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-  <script src= {% static "js/administracionAtencion.js" %} ></script>
+<script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+<script src={% static "js/administracionAtencion.js" %}></script>
+<script>
+  function galeria(nombre) {
+    //Guardamos el ID en el interior de un div
+    document.getElementById("nom_atencion").innerHTML = nombre;
+    //Guardamos el ID en un input para poder recibir el ID para insertar la IMG
+    document.getElementById("txtIdAtencion").value = nombre;
+
+  }
+</script>
 {% endblock %}

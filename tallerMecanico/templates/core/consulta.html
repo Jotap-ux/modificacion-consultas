@@ -7,45 +7,49 @@
 
 {% block contenido %}
   <main class="consulteichon">
-       <form class="formu-consulta" action="" method="POST">
-
+      <form class="formu-consulta" action="{% url 'MOSTRARC' %}" method="POST">
+      {% csrf_token %}
         <section class="consulta">
 
-            <h2 class="titulo-consulta">Formulario de consulta</h2>
+            <h1 class="titulo-consulta">Formulario de consulta</h1>
 
             <div class="Consultar">
-
-                <div class="comboBox">
-                    <label for="categoria">Categoría :</label>
-                    <select name="categoria" id="categoria">
-                        <option value="Consulta">Consulta</option>
-                        <option value="Diagnostico">Diagnóstico</option>
-                        <option value="Atenciones">Atenciones</option>
-                    </select>
-                </div>
-
-                <div class="div-nombre"> 
-                    <label class="columnita-60">Nombre:</label>
-                    <input class="columnita-70" type="text" name="txtNombre" id="txtNombre" required minlength="3" maxlength="20">
-                </div>
-
-                <div class="div-correo">
-                    <label class="columnita-60">Email:</label>
-                    <input class="columnita-70" type="email" name="txtCorreo" id="txtCorreoConsulta" placeholder="consulta@ejemplo.cl" required minlength="10" maxlength="25">
-                </div>
-
-                <div>
-                    <input class="columnita-40x" type="text" name="txtComentario" id="txtComentario" placeholder="Comentario" required minlength="10" maxlength="50">
-                </div>
-
                 
+              <div>
+                <div style="display: flex;  margin-top: 20px">
+                  <h4 style="text-align: left; margin-left: 35px;">Categoria :</h4>
+
+                  <select class="col-100" style="width: 50%;  margin-left: 5px; height: 30px; " name = "cboCategoria2" id="cboCategoria2">
+                    {% for x in tipos %}
+                        <option value = "{{ x.categoria }}" >{{ x.categoria }}</option>                 
+                    {% endfor %}     
+                  </select>
+                </div>
+                   
+                <div class="div-nombre"  style="text-align: left; margin-left: 35px; font-size: 23px; margin-top: 20px"> 
+                    <label for="">Nombre : {{ user.first_name}} {{ user.last_name }} </label>
+                    <input name="txtNombreusu" hidden  value="{{ user.first_name}} {{ user.last_name }}" >
+                </div>
+
+                <div class="div-correo"  style="text-align: left; margin-left: 35px; font-size: 23px; margin-top: 20px; margin-bottom: 20px">
+                    <label for="">Correo : {{ user.email}} </label>
+                    <input name="txtCorreousu" hidden style="text-align: left; margin-left: 35px" value="{{ user.email}}">
+                </div>
+
+                <div style="margin-bottom: 20px">
+                    <input class="columnita-40x" type="text" name="txtComentario" id="txtComentario" placeholder="Comentario" required minlength="10" maxlength="100">
+                </div>
+
                 <input id="btnEnviarConsulta" class="btn-enviar-formu" type="submit" value="Enviar">
+                
+            </div>
 
-
+     
+     
         </section>
 
     </form>
-
+    
   </main>
 {% endblock %}
 

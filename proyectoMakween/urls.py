@@ -24,6 +24,7 @@ from django.conf import settings
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('',include('tallerMecanico.urls')),
+    path('',include('api.urls')),
 ]
 
 #Agregar a las rutas existentes la UBICACIÓN DE LA CARPETA MEDIA

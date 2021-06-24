@@ -1,7 +1,7 @@
 from django.contrib import admin
 
 # Importamos los modelos que queremos Administrar
-from .models import TipoAtencion, Atencion, Galeria
+from .models import TipoAtencion, Atencion, Galeria, FormularioConsulta
 
 # Clase para mostrar ciertas caracteristicas nuevas en el entorno administrable
 class AtencionAdmin(admin.ModelAdmin):
@@ -24,8 +24,12 @@ class GaleriaAdmin(admin.ModelAdmin):
     list_per_page = 5
     search_fields = ["id_galeria","atencion"]
 
+class FormularioConsultaAdmin(admin.ModelAdmin):
+    list_display = ["id"]
+
 # Register your models here.
 # Registramos y ya pueden ser utilizados en el entorno de administración
 admin.site.register(TipoAtencion,TipoAtencionAdmin)
 admin.site.register(Atencion,AtencionAdmin)
 admin.site.register(Galeria,GaleriaAdmin)
+admin.site.register(FormularioConsulta,FormularioConsultaAdmin)

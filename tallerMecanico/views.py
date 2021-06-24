@@ -1,7 +1,8 @@
+from django.http import response
 from django.shortcuts import render, redirect
 
 # Desde acá llamamos a los datos del Modelo
-from .models import TipoAtencion, Atencion
+from .models import Galeria, TipoAtencion, Atencion, FormularioConsulta
 
 # Importar el Modelo de Usuarios (User)
 from django.contrib.auth.models import Group, User
@@ -16,23 +17,14 @@ from django.contrib.auth.decorators import login_required, permission_required #
 # Acá creamos los métodos que renderizan las páginas y serán importamos en las urls
 
 def index(request):
-    #Mostramos las últimas 5 atenciones ordenadas por fecha
+    #Mostramos las últimas 4 atenciones publicadas y ordenadas por fecha
     listaAtenciones = Atencion.objects.filter(publicado = True).order_by('fecha')[:4]
     datos = {"atenciones":listaAtenciones}
     return render(request,'core/index.html',datos)
 
-def servicios(request):
-    listaServicios = TipoAtencion.objects.all()
-    datos = {"lista":listaServicios}
-    return render(request,'core/servicios.html',datos)
-
 def ubicacion(request):
     return render(request, 'core/ubicacion.html')
 
-def consulta(request):
-    return render(request, 'core/consulta.html')
-
-# PUBLICADO TRUE
 def galeria(request):
     lista = Atencion.objects.filter (publicado = True)
     datos = {"listaAtenciones":lista}
@@ -53,6 +45,7 @@ def iniciarSesion(request):
             return render(request,'core/index.html',contexto)
     return render(request,'core/index.html')
 
+@login_required(login_url='/login/')
 def cerrarSesion(request):
     #Me cierra la sesión del usuario logeado en ese momento
     logout(request)
@@ -131,15 +124,23 @@ def detalleAtencion(request):
 def mostrarAtencion(request,id):
     #Busco la atención por su ID y la guardo
     #luego entrego esa información en formato JSON a la página
-    atencion = Atencion.objects.get(id = id)
-    datos = {"atencion":atencion}
+    atencionDetalle = Atencion.objects.get(id = id)
+    galeria = Galeria.objects.filter(atencion = atencionDetalle)
+    cantidad = galeria.count()
+    if cantidad == 0:
+        mensaje = "Sin Galeria de Imágenes"
+    elif cantidad == 1:
+        mensaje = str(galeria.count()) + " Imágen en Galeria"
+    else:
+        mensaje = str(galeria.count()) + " Imágenes en Galeria"
+    datos = {"atencion":atencionDetalle,"galeria":galeria,"cantidad":mensaje}
     return render(request,'core/fichaAtencion.html', datos)
 
 # CAMBIAR LOS FALSE POR TRUE DESPUES
 # Filtrar por Categoria - Mecanico y Palabras claves!
 def filtrar(request):
     #Guardamos todas las atenciones si no se encuentra la que se busca
-    atenciones = Atencion.objects.filter (publicado = False)
+    atenciones = Atencion.objects.filter (publicado = True)
     datos = {"listaAtenciones":atenciones}
     if request.POST:
         texto = request.POST.get("filtro-busqueda")
@@ -159,7 +160,7 @@ def filtrar(request):
                 datos = {"listaAtenciones":atenciones,"mensaje":"Filtrado por Mecánicos","cantidad":"Se encontraron " + str(cantidad) + " resultados"}
                 if cantidad == 0:
                     # Palabras claves diagnostico en diagnostico
-                    atenciones = Atencion.objects.filter(diagnostico__contains = texto).filter(publicado =  False)
+                    atenciones = Atencion.objects.filter(diagnostico__contains = texto).filter(publicado =  True)
                     cantidad = atenciones.count()
                     datos = {"listaAtenciones":atenciones, "mensaje":"Filtrado por palabras claves", "cantidad":"Se encontraron " + str(cantidad) + " resultados"}
                     if cantidad == 0:
@@ -173,7 +174,9 @@ def filtrar(request):
     
 # Ingresar al entorno de admin de atenciones 
 # Falta agregar permiso
-@login_required(login_url='/login/')
+
+@login_required(login_url='/login/') #Necesita estar logeado para subir atenciones
+@permission_required('tallerMecanico.view_atencion',login_url='/login/')
 def administrarAtencion (request):
     #Cargamos las atenciones del Mecánico que esté logeado
     nombre = request.user.first_name + " " + request.user.last_name
@@ -193,12 +196,16 @@ def administrarAtencion (request):
         datos = {"mensaje":mensaje}
     return render(request,'core/adminAtencion.html',datos)
 
+@login_required(login_url="/login/")
+@permission_required('tallerMecanico.change_atencion',login_url='/login/')
 def pagModificarAtencion(request, id):
     listaCategorias = TipoAtencion.objects.all()
     atencion = Atencion.objects.get(id = id)
     datos = {"categorias":listaCategorias,"atencion":atencion}
     return render(request,'core/modificar-atencion.html',datos)
 
+@login_required(login_url='/login/')
+@permission_required('tallerMecanico.change_atencion',login_url='/login/')
 def actualizar(request):
     nombre_trabajor = request.user.first_name + " " + request.user.last_name
     listaAtenciones = Atencion.objects.filter(trabajador = nombre_trabajor)
@@ -235,19 +242,64 @@ def actualizar(request):
             
     return render (request,'core/adminAtencion.html', datos)
 
+@login_required(login_url='/login/')
+@permission_required('tallerMecanico.delete_atencion',login_url='/login/')
 def eliminarAtencion(request,id):
     atencion = Atencion.objects.get(id = id)
     atencion.delete()
     return redirect(to='ADMIN_ATENCION')
 
-'''
-   diagnostico = models.TextField(max_length = 40)
-    fecha = models.DateField(null=True)
-    imagen = models.ImageField(upload_to = 'atenciones', null = True) #Nulo por ahora
-    materiales = models.TextField(max_length = 40)
-    id_atencion = models.ForeignKey(TipoAtencion, on_delete = CASCADE)
-    publicado = models.BooleanField(default = False)
-    comentario = models.CharField(max_length = 40, null = True, default = "N/A")
-    trabajador = models.CharField(max_length = 30)
+@login_required(login_url='/login/')
+@permission_required('tallerMecanico.add_galeria',login_url='/login/')
+def insertarImagen(request):
+    if request.POST:
+        idAtencion = request.POST.get('txtIdAtencion')
+        imagen = request.FILES.get('txtFoto')
+        atencion = Atencion.objects.get(id = idAtencion)
 
-'''
+        g = Galeria()
+        g.imagen_galeria = imagen
+        g.atencion = atencion
+        g.save()
+    
+    return redirect(to = 'ADMIN_ATENCION')
+
+#Consumo de API REST
+
+import requests
+
+def servicios(request):
+    response = requests.get("http://127.0.0.1:8000/api/tipoatencion/")
+    listaServicios = response.json()
+    datos = {"lista":listaServicios}
+    return render(request,'core/servicios.html',datos)
+
+#----------------------------------------------
+@login_required(login_url='/login/')
+def consulta(request):
+    tipos = TipoAtencion.objects.all()
+    contexto = {"tipos":tipos}
+    
+
+    return render(request,"core/consulta.html",contexto)
+
+def mostrarconsulta(request):
+    contexto={}
+    if request.POST:
+        tipos = TipoAtencion.objects.all()
+        categoria = request.POST.get("cboCategoria2")
+        nombre = request.POST.get("txtNombreusu")
+        correo = request.POST.get("txtCorreousu")
+        comentario = request.POST.get("txtComentario")
+        obj_Categoria = TipoAtencion.objects.get(categoria=categoria)
+        consul = FormularioConsulta(
+            categoria = obj_Categoria,
+            nombre = nombre,
+            correo = correo,
+            comentario = comentario
+        )
+        consul.save()   
+        contexto = {"tipos":tipos, "mensaje":"Consulta Ingresada", "categoria":categoria, "nombre":nombre, "correo":correo, "comentario":comentario}
+    else:
+        contexto = {"tipos":tipos, "mensaje":" No se ha podido ingresar la consulta"}
+    return render(request,"core/mostrarconsulta.html",contexto)

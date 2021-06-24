@@ -1,0 +1,34 @@
+{% extends 'core/plantilla.html' %}
+{% load static %}
+
+{% block css%}
+    <link rel="stylesheet" href={% static "css/hojaJp.css" %}>
+    <link rel="stylesheet" href={% static "dist/css/lightbox.min.css" %}>
+{% endblock %}
+
+{% block contenido %}
+
+
+<section class="detalle">
+    <div style="justify-content: center; width: 45%;" class="contenedor-1">
+        
+   
+
+        <div class="diagnostico-campo">
+            <b><h1 style="margin-bottom: 20px; text-align: center;">{{mensaje}}</h1>  </b>   
+            
+            <h2>Categoria : {{categoria}}</h2>   
+            <h2>Nombre    : {{nombre}}</h2>   
+            <h2>Correo    : {{correo}}</h2>   
+            <h2>Comentario: {{comentario}}</h2> 
+        </div>
+        
+         
+
+         
+ 
+
+    </div>
+</section>
+
+{% endblock %}

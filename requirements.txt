@@ -1,3 +1,5 @@
-django == 3.2
+django 
 pillow
 django-admin-interface
+djangorestframework
+python -m pip install requests
