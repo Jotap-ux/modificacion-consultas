@@ -1,6 +1,6 @@
 from django.contrib import admin
 from django.urls import path, include 
-from .views import cerrarSesion, eliminarAtencion, filtrar, index, pagModificarAtencion, mostrarAtencion, servicios, ubicacion, consulta, registrarse, galeria , iniciarSesion, detalleAtencion, mostrarAtencion, administrarAtencion, actualizar, insertarImagen, mostrarconsulta
+from .views import cerrarSesion, eliminarAtencion, filtrar, index, pagModificarAtencion, mostrarAtencion, servicios, ubicacion, consulta, registrarse, galeria , iniciarSesion, detalleAtencion, mostrarAtencion, administrarAtencion, actualizar, insertarImagen, mostrarconsulta, listarConsulta, eliminarConsulta
 # De las views importamos los métodos para renderizar las páginas
 
 urlpatterns = [
@@ -20,5 +20,7 @@ urlpatterns = [
     path('eliminar/<id>/', eliminarAtencion, name = "ELIMINAR"),
     path('insertarImagen/',insertarImagen,name = 'INSERTAR_IMG'),
     path('servicios/',servicios,name='SERVICIOS'), # Con API REST
-    path('mostrarconsulta/',mostrarconsulta,name='MOSTRARC')
+    path('mostrarconsulta/',mostrarconsulta,name='MOSTRARC'),
+    path('listarconsulta/',listarConsulta, name='LISTA_CON'),
+    path('eliminarconsulta/<id>/',eliminarConsulta, name='ELIMINAR_CON')
 ]

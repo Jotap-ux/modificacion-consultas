@@ -1,0 +1,50 @@
+{% extends 'core/plantilla.html' %}
+{% load static %}
+
+{% block css%}
+    <link rel="stylesheet" href={% static "css/hojaJp.css" %}>
+    <link rel="stylesheet" href={% static "dist/css/lightbox.min.css" %}>
+{% endblock %}
+
+{% block contenido %}
+ <section class="detalle">
+ <h1 style="text-align: center;">Consultas</h1>
+    {% for x in consultas %}
+  
+        <div class="contenedor-1">
+        
+        <table class="container-fluid table table-dark">
+            <thead style="text-align: center;">
+            <tr>
+                <th>ID</th>
+                <th>Categoria</th>
+                <th>Nombre</th>
+                <th>Correo</th>
+                <th>Comentario</th>
+                <th>Opciones</th>
+            </tr>
+            </thead>
+
+            <tbody style="text-align: center;">
+            <tr>
+                <td>{{ x.id }}</td>
+                <td>{{ x.categoria }}</td>
+                <td>{{ x.nombre }}</td>
+                <td>{{ x.correo }}</td>
+                <td>{{ x.comentario }}</td>
+                <td> <a style="margin-top: 10px; width: 110px;" onclick="confirmDelete('{{x.id}}')"
+                class="btn btn-danger">Eliminar</a>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+        </div>
+    {% endfor %}
+ </section>
+{% endblock %}
+
+{% block js %}
+    <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script src={% static "js/administrarConsulta.js" %}></script>
+{% endblock %}
+

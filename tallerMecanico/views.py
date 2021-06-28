@@ -303,3 +303,14 @@ def mostrarconsulta(request):
     else:
         contexto = {"tipos":tipos, "mensaje":" No se ha podido ingresar la consulta"}
     return render(request,"core/mostrarconsulta.html",contexto)
+
+
+def listarConsulta(request):
+    consultas = FormularioConsulta.objects.all()
+    contexto = {"consultas":consultas}
+    return render(request,"core/ListarConsultas.html", contexto)
+
+def eliminarConsulta(request,id):
+    consultas = FormularioConsulta.objects.get(id = id)
+    consultas.delete()
+    return redirect(to='LISTA_CON')
